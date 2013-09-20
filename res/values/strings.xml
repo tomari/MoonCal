@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MoonCal</string>
+    <!-- <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string> -->
+    <string name="action_legal">Legal</string>
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="this_month">Show this month</string>
+    <string name="sunday_label">Sun</string>
+    <string name="monday_label">Mon</string>
+    <string name="tuesday_label">Tue</string>
+    <string name="wednesday_label">Wed</string>
+    <string name="thursday_label">Thu</string>
+    <string name="friday_label">Fri</string>
+    <string name="saturday_label">Sat</string>
+    <string name="month_year_format">MMMM yyyy</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="legal_notice">Copyright (C) 2013  Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.</string>
+    <string name="before_2001">Sorry, cannot show you calendars before 2001</string>
+</resources>
