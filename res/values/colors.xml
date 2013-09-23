@@ -2,4 +2,6 @@
     <resources>
         <color name="moonColor">#fddd</color>
         <color name="frameColor">#cff0</color>
+        <color name="highlight">#3fff</color>
+        <color name="ordinaryday">#0fff</color>
     </resources>

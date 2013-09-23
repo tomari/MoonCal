@@ -1,12 +1,12 @@
 package com.example.mooncal;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,8 +84,8 @@ public class MainActivity extends Activity {
 		SharedPreferences settings=getSharedPreferences(PREFS_NAME,0);
 		SharedPreferences.Editor editor=settings.edit();
 		editor.putBoolean(PREFS_BROWSING, browsing);
-		editor.putInt(PREFS_YEAR, monthShown.get(Calendar.YEAR));
-		editor.putInt(PREFS_MONTH, monthShown.get(Calendar.MONTH));
+		editor.putInt(PREFS_YEAR, monthShown.get(GregorianCalendar.YEAR));
+		editor.putInt(PREFS_MONTH, monthShown.get(GregorianCalendar.MONTH));
 		editor.commit();
 	}
 
@@ -101,11 +101,11 @@ public class MainActivity extends Activity {
 		boolean res=true;
 		int itemId=item.getItemId();
 		if(itemId == R.id.next_month) {
-			monthShown.add(Calendar.MONTH, 1);
+			monthShown.add(GregorianCalendar.MONTH, 1);
 			refreshCalendar();
 			browsing=true;
 		} else if (itemId == R.id.prev_month) {
-			monthShown.add(Calendar.MONTH, -1);
+			monthShown.add(GregorianCalendar.MONTH, -1);
 			refreshCalendar();
 			browsing=true;
 		} else if (itemId == R.id.this_month) {
@@ -123,32 +123,48 @@ public class MainActivity extends Activity {
 
 	private void setToFirstDayThisMonth() {
 		monthShown=new GregorianCalendar();
-		monthShown.set(Calendar.DAY_OF_MONTH, monthShown.getActualMinimum(Calendar.DAY_OF_MONTH));
+		monthShown.set(GregorianCalendar.DAY_OF_MONTH, monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH));
 	}
 	
 	public void refreshCalendar() {
-		if(monthShown.get(Calendar.YEAR)<2001) {
+		if(monthShown.get(GregorianCalendar.YEAR)<2001) {
 			Toast.makeText(this, R.string.before_2001, Toast.LENGTH_SHORT).show();
 			monthShown.set(2001, 0, 1);
 		}
 		
 		ActionBar actionBar=getActionBar();
 		CharSequence monthyear=DateFormat.format(monthYearFormat, monthShown);
-		actionBar.setTitle(monthyear);
+		actionBar.setTitle(monthyear);		
 		
-		mPC.calc(monthShown.get(Calendar.YEAR), monthShown.get(Calendar.MONTH)-Calendar.JANUARY+1);
-		int fstDay=monthShown.getActualMinimum(Calendar.DAY_OF_MONTH);
-		int lstDay=monthShown.getActualMaximum(Calendar.DAY_OF_MONTH);
-		monthShown.set(Calendar.DAY_OF_MONTH, fstDay);
-		int fstDayOfWeek=monthShown.get(Calendar.DAY_OF_WEEK)-1;
+		mPC.calc(monthShown.get(GregorianCalendar.YEAR), monthShown.get(GregorianCalendar.MONTH)-GregorianCalendar.JANUARY+1);
+		int fstDay=monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH);
+		int lstDay=monthShown.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
+		monthShown.set(GregorianCalendar.DAY_OF_MONTH, fstDay);
+		
+		GregorianCalendar rightNow = new GregorianCalendar();
+		int highlightDay;
+		if((rightNow.get(GregorianCalendar.MONTH) == monthShown.get(GregorianCalendar.MONTH)) &&
+				(rightNow.get(GregorianCalendar.YEAR) == monthShown.get(GregorianCalendar.YEAR))) {
+			highlightDay=rightNow.get(GregorianCalendar.DAY_OF_MONTH);
+		} else {
+			highlightDay=-1;
+		}
+		
+		int fstDayOfWeek=monthShown.get(GregorianCalendar.DAY_OF_WEEK)-1;
 		int fieldnum;
 		for(fieldnum=0; fieldnum<fstDayOfWeek; fieldnum++) {
 			dayLabels[fieldnum].setVisibility(View.INVISIBLE);
 			moonViews[fieldnum].setVisibility(View.INVISIBLE);
 		}
+		Resources r=getResources();
+		int highlightColor=r.getColor(R.color.highlight);
+		int normalColor=r.getColor(R.color.ordinaryday);
 		for(int day=fstDay; day<=lstDay; day++) {
-			dayLabels[fieldnum].setVisibility(View.VISIBLE);
+			int bgcolor=(highlightDay==day)?highlightColor:normalColor;
+			dayLabels[fieldnum].setBackgroundColor(bgcolor);
 			dayLabels[fieldnum].setText(Integer.toString(day));
+			dayLabels[fieldnum].setVisibility(View.VISIBLE);
+			moonViews[fieldnum].setBackgroundColor(bgcolor);
 			moonViews[fieldnum].setPhaseLunation(mPC.phases[day-1], mPC.lunations[day-1]);
 			moonViews[fieldnum].setVisibility(View.VISIBLE);
 			fieldnum++;
