@@ -20,11 +20,8 @@ public class MainActivity extends Activity {
 	private String monthYearFormat;
 	private GregorianCalendar monthShown;
 	private MoonphaseCalculator mPC;
-	private boolean browsing=false;
-	public static final String PREFS_NAME="MoonCalPrefs";
-	private static final String PREFS_BROWSING="browsing";
-	private static final String PREFS_YEAR="year";
-	private static final String PREFS_MONTH="month";
+	private static final String STATE_YEAR="year";
+	private static final String STATE_MONTH="month";
 	
 	static private final int[] dayNumberLabelIds = {
 		R.id.dayNumberLabel00,R.id.dayNumberLabel01,R.id.dayNumberLabel02,R.id.dayNumberLabel03,R.id.dayNumberLabel04,R.id.dayNumberLabel05,R.id.dayNumberLabel06,
@@ -66,11 +63,10 @@ public class MainActivity extends Activity {
 		mPC=new MoonphaseCalculator();
 		
 		monthYearFormat=getResources().getString(R.string.month_year_format);
-		SharedPreferences settings=getSharedPreferences(PREFS_NAME,0);
-		browsing=settings.getBoolean(PREFS_BROWSING, false);
-		if(browsing) {
-			int lastYear=settings.getInt(PREFS_YEAR, 2013);
-			int lastMonth=settings.getInt(PREFS_MONTH, 9);
+
+		if(savedInstanceState!=null) {
+			int lastYear=savedInstanceState.getInt(STATE_YEAR);
+			int lastMonth=savedInstanceState.getInt(STATE_MONTH);
 			monthShown=new GregorianCalendar(lastYear,lastMonth,1);
 		} else {
 			setToFirstDayThisMonth();
@@ -79,16 +75,13 @@ public class MainActivity extends Activity {
 	}
 	
 	@Override
-	protected void onStop() {
-		super.onStop();
-		SharedPreferences settings=getSharedPreferences(PREFS_NAME,0);
-		SharedPreferences.Editor editor=settings.edit();
-		editor.putBoolean(PREFS_BROWSING, browsing);
-		editor.putInt(PREFS_YEAR, monthShown.get(GregorianCalendar.YEAR));
-		editor.putInt(PREFS_MONTH, monthShown.get(GregorianCalendar.MONTH));
-		editor.commit();
+	public void onSaveInstanceState(Bundle savedInstanceState) {
+		savedInstanceState.putInt(STATE_YEAR, monthShown.get(GregorianCalendar.YEAR));
+		savedInstanceState.putInt(STATE_MONTH, monthShown.get(GregorianCalendar.MONTH));
+		
+		super.onSaveInstanceState(savedInstanceState);
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -103,14 +96,11 @@ public class MainActivity extends Activity {
 		if(itemId == R.id.next_month) {
 			monthShown.add(GregorianCalendar.MONTH, 1);
 			refreshCalendar();
-			browsing=true;
 		} else if (itemId == R.id.prev_month) {
 			monthShown.add(GregorianCalendar.MONTH, -1);
 			refreshCalendar();
-			browsing=true;
 		} else if (itemId == R.id.this_month) {
 			setToFirstDayThisMonth();
-			browsing=false;
 			refreshCalendar();
 		} else if (itemId == R.id.action_legal) {
 			LegalDialogFragment dFrag=new LegalDialogFragment();
