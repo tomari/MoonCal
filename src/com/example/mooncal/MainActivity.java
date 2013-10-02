@@ -5,7 +5,6 @@ import java.util.GregorianCalendar;
 import android.os.Bundle;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.text.format.DateFormat;
 import android.view.Menu;
