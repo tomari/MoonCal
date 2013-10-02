@@ -2,12 +2,10 @@
 <resources>
 
     <string name="app_name">MoonCal</string>
-    <!-- <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string> -->
     <string name="action_legal">Legal</string>
     <string name="previous_month">Previous month</string>
     <string name="next_month">Next month</string>
-    <string name="this_month">Show this month</string>
+    <string name="this_month">Go to today</string>
     <string name="sunday_label">Sun</string>
     <string name="monday_label">Mon</string>
     <string name="tuesday_label">Tue</string>
