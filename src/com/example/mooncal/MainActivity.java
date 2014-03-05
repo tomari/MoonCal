@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.text.format.DateFormat;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -230,5 +231,19 @@ public class MainActivity extends Activity {
 		}
 		public int getOffset() { return offset; }
 		public void resetOffset() { offset=0; }
+	}
+	@Override
+	public boolean onKeyDown (int keyCode, KeyEvent event) {
+		if(keyCode==KeyEvent.KEYCODE_DPAD_LEFT) {
+			monthShown.add(GregorianCalendar.MONTH, -1);
+		} else if(keyCode==KeyEvent.KEYCODE_DPAD_RIGHT) {
+			monthShown.add(GregorianCalendar.MONTH, 1);
+		} else if(keyCode==KeyEvent.KEYCODE_BUTTON_Y) {
+			setToFirstDayThisMonth();
+		} else {
+			return super.onKeyDown(keyCode, event);
+		}
+		refreshCalendar();
+		return true;
 	}
 }
