@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">MoonCal</string>
+	<string name="action_legal">バージョン情報</string>
+	<string name="previous_month">前の月</string>
+	<string name="next_month">次の月</string>
+	<string name="this_month">今月</string>
+	<string name="action_settings">設定</string>
+	<string name="sunday_label">日</string>
+	<string name="monday_label">月</string>
+	<string name="tuesday_label">火</string>
+	<string name="wednesday_label">水</string>
+	<string name="thursday_label">木</string>
+	<string name="friday_label">金</string>
+	<string name="saturday_label">土</string>
+	<string name="month_year_format">yyyy MMMM</string>
+	<string name="dismiss">閉じる</string>
+	<string name="legal_notice">Copyright (C) 2013\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/mooncal/</string>
+	<string name="before_2001">2001年以前には戻れません</string>
+	<string name="pref_southhemi">南半球</string>
+	<string name="settings_title">設定</string>
+</resources>
