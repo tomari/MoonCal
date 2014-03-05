@@ -28,5 +28,6 @@
 		android:id="@+id/action_settings"
 		android:orderInCategory="110"
 		android:showAsAction="ifRoom"
+		android:icon="@drawable/action_settings"
 		android:title="@string/action_settings"/>
 </menu>
