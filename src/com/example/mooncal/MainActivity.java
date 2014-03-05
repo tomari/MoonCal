@@ -3,9 +3,12 @@ package com.example.mooncal;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.animation.ValueAnimator;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.text.format.DateFormat;
 import android.view.GestureDetector;
@@ -58,7 +61,13 @@ public class MainActivity extends Activity {
 			moonViews[i]=(MoonDayView)findViewById(moonDayViewIds[i]);
 		}
 	}
-	
+	private void rotateMoonViews() {
+		SharedPreferences shrP=PreferenceManager.getDefaultSharedPreferences(this);
+		boolean southhemi=shrP.getBoolean(SettingsActivity.SOUTHHEMI, false);
+		for(MoonDayView v: moonViews) {
+			v.setRotation(southhemi?180:0);
+		}
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,7 +89,11 @@ public class MainActivity extends Activity {
 		}
 		refreshCalendar();
 	}
-	
+	@Override
+	public void onResume() {
+		super.onResume();
+		rotateMoonViews();
+	}
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		savedInstanceState.putInt(STATE_YEAR, monthShown.get(GregorianCalendar.YEAR));
@@ -112,6 +125,9 @@ public class MainActivity extends Activity {
 		} else if (itemId == R.id.action_legal) {
 			LegalDialogFragment dFrag=new LegalDialogFragment();
 			dFrag.show(getFragmentManager(), "com.example.mooncal.legaldialog");
+		} else if(itemId==R.id.action_settings) {
+			Intent intent=new Intent(this,SettingsActivity.class);
+			startActivity(intent);
 		} else {
 			res=false;
 		}

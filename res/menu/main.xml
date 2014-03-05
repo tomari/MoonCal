@@ -1,28 +1,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
-        android:id="@+id/action_legal"
-        android:orderInCategory="50"
-        android:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_about"
-        android:title="@string/action_legal"/>
 	<item 
-	    android:id="@+id/next_month"
-	    android:orderInCategory="80"
-	    android:showAsAction="ifRoom"
-	    android:icon="@drawable/navigation_next_item"
-	    android:title="@string/next_month" />
+		android:id="@+id/this_month"
+		android:orderInCategory="60"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_collections_go_to_today"
+		android:title="@string/this_month" />
 	<item 
-	    android:id="@+id/this_month"
-	    android:orderInCategory="60"
-	    android:showAsAction="ifRoom"
-	    android:icon="@drawable/ic_collections_go_to_today"
-	    android:title="@string/this_month" />
+		android:id="@+id/next_month"
+		android:orderInCategory="80"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/navigation_next_item"
+		android:title="@string/next_month" />
 	<item 
-	    android:id="@+id/prev_month"
-	    android:orderInCategory="70"
-	    android:showAsAction="ifRoom"
-	    android:icon="@drawable/navigation_previous_item"
-	    android:title="@string/previous_month" />
-		
+		android:id="@+id/prev_month"
+		android:orderInCategory="70"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/navigation_previous_item"
+		android:title="@string/previous_month" />
+	<item
+		android:id="@+id/action_legal"
+		android:orderInCategory="100"
+		android:showAsAction="ifRoom"
+		android:icon="@drawable/ic_action_about"
+		android:title="@string/action_legal"/>
+	<item
+		android:id="@+id/action_settings"
+		android:orderInCategory="110"
+		android:showAsAction="ifRoom"
+		android:title="@string/action_settings"/>
 </menu>
