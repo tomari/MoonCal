@@ -3,12 +3,15 @@ package com.example.mooncal;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.animation.ValueAnimator;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.text.format.DateFormat;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,9 @@ public class MainActivity extends Activity {
 	private MoonphaseCalculator mPC;
 	private static final String STATE_YEAR="year";
 	private static final String STATE_MONTH="month";
+	private GestureDetector gestureD;
+	private GestureListener gestureL;
+	private ValueAnimator anim=null;
 	
 	static private final int[] dayNumberLabelIds = {
 		R.id.dayNumberLabel00,R.id.dayNumberLabel01,R.id.dayNumberLabel02,R.id.dayNumberLabel03,R.id.dayNumberLabel04,R.id.dayNumberLabel05,R.id.dayNumberLabel06,
@@ -60,6 +66,8 @@ public class MainActivity extends Activity {
 		registerDayLabels();
 		registerMoonViews();
 		mPC=new MoonphaseCalculator();
+		gestureL=new GestureListener();
+		gestureD=new GestureDetector(this, gestureL);
 		
 		monthYearFormat=getResources().getString(R.string.month_year_format);
 
@@ -162,5 +170,48 @@ public class MainActivity extends Activity {
 			dayLabels[fieldnum].setVisibility(View.INVISIBLE);
 			moonViews[fieldnum].setVisibility(View.INVISIBLE);
 		}
+	}
+	@Override
+	public boolean onTouchEvent(MotionEvent e) {
+		boolean gest=gestureD.onTouchEvent(e);
+		boolean res=false;
+		if(e.getAction()==MotionEvent.ACTION_UP) {
+			final View bv=findViewById(R.id.baseview);
+			int offs=gestureL.getOffset();
+			if(Math.abs(offs)>bv.getWidth()/6) {
+				int dir=offs>0?-1:1;
+				monthShown.add(GregorianCalendar.MONTH, dir);
+				refreshCalendar();
+				if(anim!=null) { anim.cancel(); }
+				int w=bv.getWidth();
+				anim=ValueAnimator.ofInt((offs>0?-w:w),0);
+				anim.setDuration(100);
+				anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+					@Override
+					public void onAnimationUpdate(ValueAnimator animation) {
+						bv.setX((Integer)animation.getAnimatedValue());
+					}
+				});
+				anim.start();
+			} else {
+				bv.setX(0);
+			}
+			gestureL.resetOffset();
+			res=true;
+		}
+		return gest|res;
+	}
+	private class GestureListener extends GestureDetector.SimpleOnGestureListener {
+		private int offset=0;
+		@Override
+		public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+			offset=(int) (e2.getX()-e1.getX());
+			View bv=MainActivity.this.findViewById(R.id.baseview);
+			bv.setX(offset);
+			return true; 
+			
+		}
+		public int getOffset() { return offset; }
+		public void resetOffset() { offset=0; }
 	}
 }
