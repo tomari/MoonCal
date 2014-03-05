@@ -178,7 +178,8 @@ public class MainActivity extends Activity {
 		if(e.getAction()==MotionEvent.ACTION_UP) {
 			final View bv=findViewById(R.id.baseview);
 			int offs=gestureL.getOffset();
-			if(Math.abs(offs)>bv.getWidth()/6) {
+			int thresh=getResources().getDimensionPixelSize(R.dimen.scroll_thresh);
+			if(Math.abs(offs)>thresh) {
 				int dir=offs>0?-1:1;
 				monthShown.add(GregorianCalendar.MONTH, dir);
 				refreshCalendar();
