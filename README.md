@@ -9,13 +9,6 @@ Android 3.0 and later
 
 Verified on an Android 4.1.2 device and an Android 4.3 emulator
 
-## Compiled binary
-http://www.adrive.com/public/t8DzZJ/MoonCal-1.apk (66 KBytes)
-
-SHA1(MoonCal-1.apk)= 1ca9761513fcbc03a9627b4b4e4c083e0d7a2a09
-
-This application requests no permissions.
-
 ## How to compile
 Requires NDK R9.
 
