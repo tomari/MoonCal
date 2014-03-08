@@ -16,7 +16,9 @@
     <string name="saturday_label">Sat</string>
     <string name="month_year_format">MMMM yyyy</string>
     <string name="dismiss">Dismiss</string>
-    <string name="legal_notice">Copyright (C) 2013\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/mooncal/</string>
+	<string name="legal_notice">Version %s\nCopyright (C) 2013\u0020\u0020Hisanobu Tomari.\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/mooncal/</string>
+	<string name="legal_url">http://davy.nyacom.net/mooncal/</string> 
+	<string name="legal_goweb">Website</string>
     <string name="before_2001">Cannot show you calendars before 2001</string>
     <string name="pref_southhemi">Southern Hemisphere</string>
 	<string name="settings_title">Settings</string>
