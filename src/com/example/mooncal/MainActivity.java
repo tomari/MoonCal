@@ -88,12 +88,12 @@ public class MainActivity extends Activity {
 		} else {
 			setToFirstDayThisMonth();
 		}
-		refreshCalendar();
 	}
 	@Override
 	public void onResume() {
 		super.onResume();
 		rotateMoonViews();
+		refreshCalendar();
 	}
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
@@ -200,16 +200,20 @@ public class MainActivity extends Activity {
 				int dir=offs>0?-1:1;
 				monthShown.add(GregorianCalendar.MONTH, dir);
 				refreshCalendar();
-				if(anim!=null) { anim.cancel(); }
+				if(anim!=null) {
+					anim.cancel();
+				} else {
+					anim=new ValueAnimator();
+					anim.setDuration(100);
+					anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+						@Override
+						public void onAnimationUpdate(ValueAnimator animation) {
+							bv.setX((Integer)animation.getAnimatedValue());
+						}
+					});
+				} 
 				int w=bv.getWidth();
-				anim=ValueAnimator.ofInt((offs>0?-w:w),0);
-				anim.setDuration(100);
-				anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-					@Override
-					public void onAnimationUpdate(ValueAnimator animation) {
-						bv.setX((Integer)animation.getAnimatedValue());
-					}
-				});
+				anim.setIntValues((offs>0?-w:w),0);
 				anim.start();
 			} else {
 				bv.setX(0);
