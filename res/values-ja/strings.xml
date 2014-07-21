@@ -3,8 +3,6 @@
 
 	<string name="app_name">MoonCal</string>
 	<string name="action_legal">バージョン情報</string>
-	<string name="previous_month">前の月</string>
-	<string name="next_month">次の月</string>
 	<string name="this_month">今月</string>
 	<string name="action_settings">設定</string>
 	<string name="sunday_label">日</string>

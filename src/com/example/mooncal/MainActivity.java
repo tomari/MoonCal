@@ -127,13 +127,7 @@ public class MainActivity extends Activity {
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		boolean res=true;
 		int itemId=item.getItemId();
-		if(itemId == R.id.next_month) {
-			monthShown.add(GregorianCalendar.MONTH, 1);
-			refreshCalendar();
-		} else if (itemId == R.id.prev_month) {
-			monthShown.add(GregorianCalendar.MONTH, -1);
-			refreshCalendar();
-		} else if (itemId == R.id.this_month) {
+		if (itemId == R.id.this_month) {
 			setToFirstDayThisMonth();
 			refreshCalendar();
 		} else if (itemId == R.id.action_legal) {

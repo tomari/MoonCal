@@ -6,18 +6,6 @@
 		android:showAsAction="ifRoom"
 		android:icon="@drawable/ic_collections_go_to_today"
 		android:title="@string/this_month" />
-	<item 
-		android:id="@+id/next_month"
-		android:orderInCategory="80"
-		android:showAsAction="ifRoom"
-		android:icon="@drawable/navigation_next_item"
-		android:title="@string/next_month" />
-	<item 
-		android:id="@+id/prev_month"
-		android:orderInCategory="70"
-		android:showAsAction="ifRoom"
-		android:icon="@drawable/navigation_previous_item"
-		android:title="@string/previous_month" />
 	<item
 		android:id="@+id/action_legal"
 		android:orderInCategory="100"
