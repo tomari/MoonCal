@@ -21,8 +21,9 @@ public class LegalDialogFragment extends DialogFragment {
 		} catch (NameNotFoundException e) {
 			versionName="";
 		}
+		String appname=getResources().getString(R.string.app_name);
 		final String msg=String.format(a.getResources().getString(R.string.legal_notice),
-				versionName);
+				appname, versionName);
 		builder.setMessage(msg)
 				.setPositiveButton(R.string.dismiss, null)
 				.setNeutralButton(R.string.legal_goweb, new DialogInterface.OnClickListener() {
