@@ -1,5 +1,7 @@
 package com.example.mooncal;
 
+import java.text.DateFormatSymbols;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
@@ -76,14 +78,12 @@ public class MainActivity extends Activity {
 		final int[] DoWlabelId={
 			R.id.sundayLabel, R.id.mondayLabel, R.id.tuesdayLabel, R.id.wednesdayLabel,
 			R.id.thursdayLabel, R.id.fridayLabel, R.id.saturdayLabel };
-		final int[] DoWtxtId={
-			R.string.sunday_label, R.string.monday_label, R.string.tuesday_label, R.string.wednesday_label,
-			R.string.thursday_label, R.string.friday_label, R.string.saturday_label };
 		SharedPreferences shrP=PreferenceManager.getDefaultSharedPreferences(this);
 		DoWoffset=shrP.getBoolean(SettingsActivity.WEEKDAY1,false)?1:0;
+		String weekdays[]=DateFormatSymbols.getInstance().getShortWeekdays();
 		for(int i=0; i<DoWlabelId.length; i++) {
 			TextView v=(TextView) findViewById(DoWlabelId[i]);
-			v.setText(DoWtxtId[(i+DoWoffset)%DoWtxtId.length]);
+			v.setText(weekdays[Calendar.SUNDAY+((i+DoWoffset)%7)]);
 		}
 	}
 	@Override

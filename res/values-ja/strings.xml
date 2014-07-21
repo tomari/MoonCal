@@ -5,13 +5,6 @@
 	<string name="action_legal">バージョン情報</string>
 	<string name="this_month">今月</string>
 	<string name="action_settings">設定</string>
-	<string name="sunday_label">日</string>
-	<string name="monday_label">月</string>
-	<string name="tuesday_label">火</string>
-	<string name="wednesday_label">水</string>
-	<string name="thursday_label">木</string>
-	<string name="friday_label">金</string>
-	<string name="saturday_label">土</string>
 	<string name="month_year_format">yyyy MMMM</string>
 	<string name="dismiss">閉じる</string>
 	<string name="legal_goweb">ウェブサイト</string>

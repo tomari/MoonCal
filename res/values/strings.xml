@@ -5,13 +5,6 @@
     <string name="action_legal">Legal</string>
     <string name="this_month">Go to today</string>
 	<string name="action_settings">Settings</string>
-    <string name="sunday_label">Sun</string>
-    <string name="monday_label">Mon</string>
-    <string name="tuesday_label">Tue</string>
-    <string name="wednesday_label">Wed</string>
-    <string name="thursday_label">Thu</string>
-    <string name="friday_label">Fri</string>
-    <string name="saturday_label">Sat</string>
     <string name="month_year_format">MMMM yyyy</string>
 	<string name="month_year_skelton">yyyyMMMM</string>
     <string name="dismiss">Dismiss</string>

@@ -22,56 +22,49 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/sunday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/mondayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/monday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/tuesdayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/tuesday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/wednesdayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/wednesday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/thursdayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/thursday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/fridayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/friday_label" />
+			android:gravity="center" />
 
         <TextView
             android:id="@+id/saturdayLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/saturday_label" />
+			android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
