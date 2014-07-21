@@ -13,6 +13,7 @@
     <string name="friday_label">Fri</string>
     <string name="saturday_label">Sat</string>
     <string name="month_year_format">MMMM yyyy</string>
+	<string name="month_year_skelton">yyyyMMMM</string>
     <string name="dismiss">Dismiss</string>
 	<string name="legal_notice" formatted="false">%s V%s\nCopyright (C) 2013, 2014\u0020\u0020Hisanobu Tomari.\nPortions Copyright 1996 Christopher Osburn\n\nThis program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions; see the source for details.\nhttp://davy.nyacom.net/mooncal/</string>
 	<string name="legal_url">http://davy.nyacom.net/mooncal/</string> 

@@ -1,10 +1,13 @@
 package com.example.mooncal;
 
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -146,9 +149,18 @@ public class MainActivity extends Activity {
 		monthShown=new GregorianCalendar();
 		monthShown.set(GregorianCalendar.DAY_OF_MONTH, monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH));
 	}
-	
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+	private String getBestYearMonthFormat() {
+		return DateFormat.getBestDateTimePattern(Locale.getDefault(), 
+				getResources().getString(R.string.month_year_skelton));
+	}
 	private void updateActionBarTitle(GregorianCalendar month) {
-		String monthYearFormat=getResources().getString(R.string.month_year_format);
+		String monthYearFormat;
+		if(android.os.Build.VERSION.SDK_INT>=Build.VERSION_CODES.JELLY_BEAN_MR2) {
+			monthYearFormat=getBestYearMonthFormat();
+		} else {
+			monthYearFormat=getResources().getString(R.string.month_year_format);
+		}
 		ActionBar actionBar=getActionBar();
 		CharSequence monthyear=DateFormat.format(monthYearFormat, month);
 		actionBar.setTitle(monthyear);		
