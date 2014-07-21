@@ -3,5 +3,6 @@
 	<CheckBoxPreference
 		android:key="pref_south_hemi"
 		android:title="@string/pref_southhemi"
+		android:summary="@string/pref_southhemi_info"
 		android:defaultValue="false" />
 </PreferenceScreen>
