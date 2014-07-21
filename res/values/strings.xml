@@ -23,4 +23,6 @@
     <string name="pref_southhemi">Southern Hemisphere</string>
 	<string name="pref_southhemi_info">Changes the orientation of moon shapes</string>
 	<string name="settings_title">Settings</string>
+	<string name="pref_weekstart1">A week starts on Monday</string>
+	<string name="pref_weekstart1_info">Leave unchecked for Sunday</string>
 </resources>

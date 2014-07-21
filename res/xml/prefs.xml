@@ -5,4 +5,9 @@
 		android:title="@string/pref_southhemi"
 		android:summary="@string/pref_southhemi_info"
 		android:defaultValue="false" />
+	<CheckBoxPreference
+		android:key="pref_weekstart1"
+		android:title="@string/pref_weekstart1"
+		android:summary="@string/pref_weekstart1_info"
+		android:defaultValue="false" />
 </PreferenceScreen>

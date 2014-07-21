@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 public class SettingsActivity extends Activity {
 	public static final String SOUTHHEMI="pref_south_hemi";
+	public static final String WEEKDAY1="pref_weekstart1";
 	public static class SettingsFragment extends PreferenceFragment {
 		@Override
 		public void onCreate(Bundle savedInstanceState) {

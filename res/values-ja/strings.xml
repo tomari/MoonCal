@@ -21,4 +21,6 @@
 	<string name="pref_southhemi">南半球</string>
 	<string name="pref_southhemi_info">月の表示の向きを変更</string>
 	<string name="settings_title">設定</string>
+	<string name="pref_weekstart1">一週間の初めは月曜日</string>
+	<string name="pref_weekstart1_info">チェックを外すと日曜日</string>
 </resources>

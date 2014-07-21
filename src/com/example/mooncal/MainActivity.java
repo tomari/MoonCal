@@ -23,7 +23,6 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	private TextView[] dayLabels;
 	private MoonDayView[] moonViews;
-	private String monthYearFormat;
 	private GregorianCalendar monthShown;
 	private MoonphaseCalculator mPC;
 	private static final String STATE_YEAR="year";
@@ -31,6 +30,7 @@ public class MainActivity extends Activity {
 	private GestureDetector gestureD;
 	private GestureListener gestureL;
 	private ValueAnimator anim=null;
+	private int DoWoffset=0;
 	
 	static private final int[] dayNumberLabelIds = {
 		R.id.dayNumberLabel00,R.id.dayNumberLabel01,R.id.dayNumberLabel02,R.id.dayNumberLabel03,R.id.dayNumberLabel04,R.id.dayNumberLabel05,R.id.dayNumberLabel06,
@@ -69,6 +69,20 @@ public class MainActivity extends Activity {
 			v.setRotation(southhemi?180:0);
 		}
 	}
+	private void rotateDoWlabels() {
+		final int[] DoWlabelId={
+			R.id.sundayLabel, R.id.mondayLabel, R.id.tuesdayLabel, R.id.wednesdayLabel,
+			R.id.thursdayLabel, R.id.fridayLabel, R.id.saturdayLabel };
+		final int[] DoWtxtId={
+			R.string.sunday_label, R.string.monday_label, R.string.tuesday_label, R.string.wednesday_label,
+			R.string.thursday_label, R.string.friday_label, R.string.saturday_label };
+		SharedPreferences shrP=PreferenceManager.getDefaultSharedPreferences(this);
+		DoWoffset=shrP.getBoolean(SettingsActivity.WEEKDAY1,false)?1:0;
+		for(int i=0; i<DoWlabelId.length; i++) {
+			TextView v=(TextView) findViewById(DoWlabelId[i]);
+			v.setText(DoWtxtId[(i+DoWoffset)%DoWtxtId.length]);
+		}
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,8 +93,6 @@ public class MainActivity extends Activity {
 		gestureL=new GestureListener();
 		gestureD=new GestureDetector(this, gestureL);
 		
-		monthYearFormat=getResources().getString(R.string.month_year_format);
-
 		if(savedInstanceState!=null) {
 			int lastYear=savedInstanceState.getInt(STATE_YEAR);
 			int lastMonth=savedInstanceState.getInt(STATE_MONTH);
@@ -92,6 +104,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
+		rotateDoWlabels();
 		rotateMoonViews();
 		refreshCalendar();
 	}
@@ -140,31 +153,38 @@ public class MainActivity extends Activity {
 		monthShown.set(GregorianCalendar.DAY_OF_MONTH, monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH));
 	}
 	
-	public void refreshCalendar() {
-		if(monthShown.get(GregorianCalendar.YEAR)<2001) {
-			Toast.makeText(this, R.string.before_2001, Toast.LENGTH_SHORT).show();
-			monthShown.set(2001, 0, 1);
-		}
-		
+	private void updateActionBarTitle(GregorianCalendar month) {
+		String monthYearFormat=getResources().getString(R.string.month_year_format);
 		ActionBar actionBar=getActionBar();
-		CharSequence monthyear=DateFormat.format(monthYearFormat, monthShown);
+		CharSequence monthyear=DateFormat.format(monthYearFormat, month);
 		actionBar.setTitle(monthyear);		
-		
-		mPC.calc(monthShown.get(GregorianCalendar.YEAR), monthShown.get(GregorianCalendar.MONTH)-GregorianCalendar.JANUARY+1);
-		int fstDay=monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH);
-		int lstDay=monthShown.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
-		monthShown.set(GregorianCalendar.DAY_OF_MONTH, fstDay);
-		
-		GregorianCalendar rightNow = new GregorianCalendar();
+	}
+	
+	private int calcHighlightDay(GregorianCalendar month) {
 		int highlightDay;
+		GregorianCalendar rightNow = new GregorianCalendar();
 		if((rightNow.get(GregorianCalendar.MONTH) == monthShown.get(GregorianCalendar.MONTH)) &&
 				(rightNow.get(GregorianCalendar.YEAR) == monthShown.get(GregorianCalendar.YEAR))) {
 			highlightDay=rightNow.get(GregorianCalendar.DAY_OF_MONTH);
 		} else {
 			highlightDay=-1;
 		}
+		return highlightDay;
+	}
+	
+	public void refreshCalendar() {
+		if(monthShown.get(GregorianCalendar.YEAR)<2001) {
+			Toast.makeText(this, R.string.before_2001, Toast.LENGTH_SHORT).show();
+			monthShown.set(2001, 0, 1);
+		}
+		updateActionBarTitle(monthShown);
 		
-		int fstDayOfWeek=monthShown.get(GregorianCalendar.DAY_OF_WEEK)-1;
+		mPC.calc(monthShown.get(GregorianCalendar.YEAR), monthShown.get(GregorianCalendar.MONTH)-GregorianCalendar.JANUARY+1);
+		int fstDay=monthShown.getActualMinimum(GregorianCalendar.DAY_OF_MONTH);
+		int lstDay=monthShown.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
+		monthShown.set(GregorianCalendar.DAY_OF_MONTH, fstDay);
+		
+		int fstDayOfWeek=(monthShown.get(GregorianCalendar.DAY_OF_WEEK)-1-DoWoffset)%7;
 		int fieldnum;
 		for(fieldnum=0; fieldnum<fstDayOfWeek; fieldnum++) {
 			dayLabels[fieldnum].setVisibility(View.INVISIBLE);
@@ -173,6 +193,7 @@ public class MainActivity extends Activity {
 		Resources r=getResources();
 		int highlightColor=r.getColor(R.color.highlight);
 		int normalColor=r.getColor(R.color.ordinaryday);
+		int highlightDay=calcHighlightDay(monthShown);
 		for(int day=fstDay; day<=lstDay; day++) {
 			int bgcolor=(highlightDay==day)?highlightColor:normalColor;
 			dayLabels[fieldnum].setBackgroundColor(bgcolor);
