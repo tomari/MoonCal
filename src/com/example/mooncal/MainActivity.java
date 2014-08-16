@@ -131,8 +131,9 @@ public class MainActivity extends Activity {
 		boolean res=true;
 		int itemId=item.getItemId();
 		if (itemId == R.id.this_month) {
-			setToFirstDayThisMonth();
-			refreshCalendar();
+			//setToFirstDayThisMonth();
+			//refreshCalendar();
+			pickMonth();
 		} else if (itemId == R.id.action_legal) {
 			LegalDialogFragment dFrag=new LegalDialogFragment();
 			dFrag.show(getFragmentManager(), "com.example.mooncal.legaldialog");
@@ -270,11 +271,25 @@ public class MainActivity extends Activity {
 		} else if(keyCode==KeyEvent.KEYCODE_DPAD_RIGHT) {
 			monthShown.add(GregorianCalendar.MONTH, 1);
 		} else if(keyCode==KeyEvent.KEYCODE_BUTTON_Y) {
-			setToFirstDayThisMonth();
+			pickMonth();
 		} else {
 			return super.onKeyDown(keyCode, event);
 		}
 		refreshCalendar();
 		return true;
+	}
+	private void pickMonth() {
+		MonthPickerFragment monthPicker=new MonthPickerFragment();
+		monthPicker.setMonth(monthShown.get(GregorianCalendar.MONTH), 
+				monthShown.get(GregorianCalendar.YEAR));
+		monthPicker.setOnMonthPickedListener(new MonthPickerFragment.OnMonthPickedListener() {
+			@Override
+			public void onMonthPicked(int year, int monthOfYear) {
+				monthShown.set(GregorianCalendar.YEAR, year);
+				monthShown.set(GregorianCalendar.MONTH, monthOfYear);
+				refreshCalendar();
+			}
+		});
+		monthPicker.show(getFragmentManager(), "monthPicker");
 	}
 }
