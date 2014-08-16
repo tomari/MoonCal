@@ -181,9 +181,10 @@ public class MainActivity extends Activity {
 	
 	public void refreshCalendar() {
 		int year=monthShown.get(GregorianCalendar.YEAR);
-		if(year<2001) {
+		final int min_year=1923;
+		if(year<min_year) {
 			Toast.makeText(this, R.string.before_2001, Toast.LENGTH_SHORT).show();
-			monthShown.set(2001, 0, 1);
+			monthShown.set(min_year, 0, 1);
 		}
 		if(MoonphaseCalculator.getSizeOfTimet()<8 && year>2037) {
 			// avoid crashing systems with 32-bit time_t
