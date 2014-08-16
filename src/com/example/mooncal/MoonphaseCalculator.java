@@ -9,6 +9,7 @@ public class MoonphaseCalculator {
 	}
 	
 	private native void calcNative(int year, int month, double[] phi, int[] lun);
+	public static native int getSizeOfTimet();
 	protected MoonphaseCalculator() {
 		final int daysMax=42;
 		phases=new double[daysMax];

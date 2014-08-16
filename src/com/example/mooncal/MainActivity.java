@@ -180,9 +180,14 @@ public class MainActivity extends Activity {
 	}
 	
 	public void refreshCalendar() {
-		if(monthShown.get(GregorianCalendar.YEAR)<2001) {
+		int year=monthShown.get(GregorianCalendar.YEAR);
+		if(year<2001) {
 			Toast.makeText(this, R.string.before_2001, Toast.LENGTH_SHORT).show();
 			monthShown.set(2001, 0, 1);
+		}
+		if(MoonphaseCalculator.getSizeOfTimet()<8 && year>2037) {
+			// avoid crashing systems with 32-bit time_t
+			monthShown.set(GregorianCalendar.YEAR, 2037);
 		}
 		updateActionBarTitle(monthShown);
 		

@@ -18,6 +18,7 @@
 */
 #include <jni.h>
 #include <stdlib.h>
+#include <time.h>
 /*#include <android/log.h>*/
 #include "fillcal.h"
 
@@ -52,4 +53,8 @@ JNIEXPORT void Java_com_example_mooncal_MoonphaseCalculator_calcNative(JNIEnv * 
 
 	(*env)->SetDoubleArrayRegion(env,phi,0,phicopysz,dblphi);
 	(*env)->SetIntArrayRegion(env,lun,0,luncopysz,intlun);
+}
+
+JNIEXPORT jint Java_com_example_mooncal_MoonphaseCalculator_getSizeOfTimet(JNIEnv * env, jobject this) {
+	return sizeof(time_t);
 }
