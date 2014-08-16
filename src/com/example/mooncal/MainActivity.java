@@ -133,8 +133,7 @@ public class MainActivity extends Activity {
 		if (itemId == R.id.this_month) {
 			pickMonth();
 		} else if(itemId==R.id.action_settings) {
-			Intent intent=new Intent(this,SettingsActivity.class);
-			startActivity(intent);
+			gotoSettings();
 		} else {
 			res=false;
 		}
@@ -271,6 +270,8 @@ public class MainActivity extends Activity {
 			monthShown.add(GregorianCalendar.MONTH, -1);
 		} else if(keyCode==KeyEvent.KEYCODE_DPAD_RIGHT) {
 			monthShown.add(GregorianCalendar.MONTH, 1);
+		} else if(keyCode==KeyEvent.KEYCODE_BUTTON_X) {
+			gotoSettings();
 		} else if(keyCode==KeyEvent.KEYCODE_BUTTON_Y) {
 			pickMonth();
 		} else {
@@ -292,5 +293,9 @@ public class MainActivity extends Activity {
 			}
 		});
 		monthPicker.show(getFragmentManager(), "monthPicker");
+	}
+	private void gotoSettings() {
+		Intent intent=new Intent(this,SettingsActivity.class);
+		startActivity(intent);
 	}
 }
