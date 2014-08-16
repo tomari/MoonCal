@@ -7,6 +7,7 @@ import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -15,6 +16,7 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 	private OnMonthPickedListener delegate;
 	private int month=Calendar.getInstance().get(Calendar.MONTH);
 	private int year=Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+	private boolean dateActuallySet=false;
 	public OnMonthPickedListener getOnMonthPickedListener() {
 		return delegate;
 	}
@@ -47,13 +49,21 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 			return null;
 		}
 		dpd.setTitle("");
+		dpd.setButton(DialogInterface.BUTTON_POSITIVE, 
+				getResources().getString(android.R.string.ok),
+				new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dateActuallySet=true;
+			}
+		});
 		datePicker.setCalendarViewShown(false);
 		return dpd;
 	}
 
 	@Override
 	public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-		if(null!=delegate) {
+		if(null!=delegate && dateActuallySet) {
 			delegate.onMonthPicked(year, monthOfYear);
 		}
 	}
