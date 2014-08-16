@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+//import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
@@ -36,6 +37,7 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 	private DatePickerDialog createMonthPickerDialog() {
 		DatePickerDialog dpd=new DatePickerDialog(getActivity(),this,year,month,1);
 		DatePicker datePicker=dpd.getDatePicker();
+		// Following try block does not work on Android L; does not harm it though
 		try {
 			Field[] datePickerFields=datePicker.getClass().getDeclaredFields();
 			for(Field datePickerField: datePickerFields) {
@@ -46,7 +48,7 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 				}
 			}
 		} catch (Exception e) {
-			return null;
+			// ignore
 		}
 		dpd.setTitle("");
 		dpd.setButton(DialogInterface.BUTTON_POSITIVE, 
