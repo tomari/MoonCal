@@ -131,12 +131,7 @@ public class MainActivity extends Activity {
 		boolean res=true;
 		int itemId=item.getItemId();
 		if (itemId == R.id.this_month) {
-			//setToFirstDayThisMonth();
-			//refreshCalendar();
 			pickMonth();
-		} else if (itemId == R.id.action_legal) {
-			LegalDialogFragment dFrag=new LegalDialogFragment();
-			dFrag.show(getFragmentManager(), "com.example.mooncal.legaldialog");
 		} else if(itemId==R.id.action_settings) {
 			Intent intent=new Intent(this,SettingsActivity.class);
 			startActivity(intent);

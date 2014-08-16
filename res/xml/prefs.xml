@@ -10,4 +10,14 @@
 		android:title="@string/pref_weekstart1"
 		android:summary="@string/pref_weekstart1_info"
 		android:defaultValue="false" />
+	<com.example.mooncal.AboutDialogPreference
+		android:key="pref_legal"
+		android:title="@string/pref_legal"
+		android:dialogMessage="@string/legal_notice"
+		android:positiveButtonText="@string/dismiss" />
+	<Preference android:title="@string/legal_goweb"
+		android:summary="@string/legal_url">
+		<intent android:action="android.intent.action.VIEW"
+			android:data="@string/legal_url" />
+	</Preference>
 </PreferenceScreen>
