@@ -8,8 +8,8 @@ import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
-//import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
@@ -37,35 +37,44 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 	private DatePickerDialog createMonthPickerDialog() {
 		DatePickerDialog dpd=new DatePickerDialog(getActivity(),this,year,month,1);
 		DatePicker datePicker=dpd.getDatePicker();
-		// Following try block does not work on Android L; does not harm it though
-		try {
-			Field[] datePickerFields=datePicker.getClass().getDeclaredFields();
-			for(Field datePickerField: datePickerFields) {
-				if("mDaySpinner".equals(datePickerField.getName())) {
-					datePickerField.setAccessible(true);
-					View dayPicker=(View) datePickerField.get(datePicker);
-					dayPicker.setVisibility(View.GONE);
-				}
-			}
-		} catch (Exception e) {
-			// ignore
-		}
 		dpd.setTitle("");
-		dpd.setButton(DialogInterface.BUTTON_POSITIVE, 
-				getResources().getString(android.R.string.ok),
-				new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				dateActuallySet=true;
+		
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+			// Following try block does not work on Android L; does not harm it though
+			try {
+				Field[] datePickerFields=datePicker.getClass().getDeclaredFields();
+				for(Field datePickerField: datePickerFields) {
+					if("mDaySpinner".equals(datePickerField.getName())) {
+						datePickerField.setAccessible(true);
+						View dayPicker=(View) datePickerField.get(datePicker);
+						dayPicker.setVisibility(View.GONE);
+					}
+				}
+			} catch (Exception e) {
+				// ignore
 			}
-		});
+			// Workaround Jelly Bean and KitKat DatePickerDialog behavior
+			// The bug seems to be fixed in the Lollipop, but the change resulted in
+			// another erroneous behavior when the workaround is there
+			dpd.setButton(DialogInterface.BUTTON_POSITIVE, 
+					getResources().getString(android.R.string.ok),
+					new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dateActuallySet=true;
+				}
+			});
+		}
+		
 		datePicker.setCalendarViewShown(false);
 		return dpd;
 	}
 
 	@Override
 	public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-		if(null!=delegate && dateActuallySet) {
+		if(null!=delegate && 
+				// JellyBean and KitKat bug workaround
+				((Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) || dateActuallySet)) {
 			delegate.onMonthPicked(year, monthOfYear);
 		}
 	}
