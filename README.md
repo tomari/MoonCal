@@ -1,6 +1,6 @@
 # MoonCal
 
-This is an application for Android that shows calendar with moon phase.
+An application for Android that shows calendar with moon phase.
 
 <img src="http://davy.nyacom.net/mooncal/mooncal_2.png" alt="screenshot" />
 
@@ -10,6 +10,11 @@ Android 3.0 and later
 Verified on an Android 4.1.2 device and an Android 4.4 emulator
 
 ## Changes
+
+Version 6
+
+* Support Android 5.0 library behavior (DatePickerDialog)
+* The new Material theme on Android 5.0
 
 Version 5
 
@@ -25,7 +30,7 @@ Version 4
 * Use best representation of Year/Month based on locale settings (only on API>=19).
 
 ## How to compile
-Requires NDK R10.
+Requires NDK R10c.
 
 * run ndk-build script included in the NDK in jni directory
 * compile using Eclipse
