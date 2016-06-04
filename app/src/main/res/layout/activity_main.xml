@@ -22,6 +22,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -29,6 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -36,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -43,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -50,6 +54,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -57,6 +62,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
 
         <TextView
@@ -64,6 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
 			android:gravity="center" />
     </LinearLayout>
 
@@ -141,6 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel01"
@@ -148,6 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel02"
@@ -155,6 +164,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel03"
@@ -162,6 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel04"
@@ -169,6 +180,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel05"
@@ -176,6 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel06"
@@ -183,6 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
@@ -250,6 +264,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel11"
@@ -257,6 +272,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel12"
@@ -264,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel13"
@@ -271,6 +288,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel14"
@@ -278,6 +296,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel15"
@@ -285,6 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel16"
@@ -292,6 +312,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
@@ -359,6 +380,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel21"
@@ -366,6 +388,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel22"
@@ -373,6 +396,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel23"
@@ -380,6 +404,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel24"
@@ -387,6 +412,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel25"
@@ -394,6 +420,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel26"
@@ -401,6 +428,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
@@ -468,6 +496,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel31"
@@ -475,6 +504,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel32"
@@ -482,6 +512,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel33"
@@ -489,6 +520,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel34"
@@ -496,6 +528,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel35"
@@ -503,6 +536,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel36"
@@ -510,6 +544,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
@@ -577,6 +612,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel41"
@@ -584,6 +620,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel42"
@@ -591,6 +628,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel43"
@@ -598,6 +636,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel44"
@@ -605,6 +644,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel45"
@@ -612,6 +652,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel46"
@@ -619,6 +660,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
@@ -685,6 +727,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel51"
@@ -692,6 +735,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel52"
@@ -699,6 +743,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel53"
@@ -706,6 +751,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel54"
@@ -713,6 +759,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel55"
@@ -720,6 +767,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             <TextView
                 android:id="@+id/dayNumberLabel56"
@@ -727,6 +775,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
                 android:text="" />
             
         </LinearLayout>
