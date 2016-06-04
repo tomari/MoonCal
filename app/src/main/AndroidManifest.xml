@@ -5,9 +5,6 @@
 	android:versionName="7"
 	android:installLocation="auto" >
 
-    <uses-sdk
-        android:minSdkVersion="11"
-		android:targetSdkVersion="23" />
 	<supports-screens
 		android:largeScreens="true"
 		android:xlargeScreens="true" />
