@@ -11,6 +11,10 @@ Verified on an Android 4.1.2 device and an Android 4.4 emulator
 
 ## Changes
 
+Version 8
+
+* Improve support for Android N (7.0)
+
 Version 6
 
 * Support Android 5.0 library behavior (DatePickerDialog)
@@ -30,10 +34,9 @@ Version 4
 * Use best representation of Year/Month based on locale settings (only on API>=19).
 
 ## How to compile
-Requires NDK R10c.
+Requires NDK R13
 
-* run ndk-build script included in the NDK in jni directory
-* compile using Eclipse
+* compile using Android Studio. Works with built-in NDK support that uses CMake.
 
 ## License
 GPLv3. See COPYING.

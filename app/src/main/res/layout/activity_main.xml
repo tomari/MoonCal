@@ -1,0 +1,785 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+	tools:context=".MainActivity"
+	android:id="@+id/baseview" >
+
+    <LinearLayout
+        android:id="@+id/wdayLabelsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+        <TextView
+            android:id="@+id/sundayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/mondayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tuesdayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/wednesdayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/thursdayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/fridayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+
+        <TextView
+            android:id="@+id/saturdayLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+			android:textSize="@dimen/date_label_textsize"
+			android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rowsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/wdayLabelsLayout"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/row0Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView00"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView01"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView02"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView03"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView04"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView05"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView06"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel00"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel02"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel03"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel04"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel05"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel06"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row1Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView10"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView11"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView12"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView13"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView14"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView15"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView16"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel13"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/row2Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView20"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView21"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView22"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView23"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView24"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView25"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView26"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel20"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel23"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/row3Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView30"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView31"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView32"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView33"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView34"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView35"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView36"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel31"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel32"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel33"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel34"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel35"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel36"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/row4Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView40"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView41"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView42"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView43"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView44"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView45"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView46"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel40"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel41"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel42"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel43"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel44"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel45"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel46"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/row5Layout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:orientation="horizontal" >
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView50"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView51"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView52"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView53"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView54"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView55"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+            <com.example.mooncal.MoonDayView
+                android:id="@+id/moonDayView56"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/dayLabelsLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            
+            <TextView
+                android:id="@+id/dayNumberLabel50"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel51"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel52"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel53"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel54"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel55"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            <TextView
+                android:id="@+id/dayNumberLabel56"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+				android:textSize="@dimen/date_label_textsize"
+                android:text="" />
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</RelativeLayout>
