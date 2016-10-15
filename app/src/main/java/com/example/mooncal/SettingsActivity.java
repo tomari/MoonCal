@@ -21,7 +21,9 @@ public class SettingsActivity extends Activity {
 		getFragmentManager().beginTransaction()
 		.replace(android.R.id.content, new SettingsFragment())
 		.commit();
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		try {
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		} catch (NullPointerException ignored) {};
 	}
 	public boolean onMenuItemSelected(int featureId,MenuItem item) {
 		int itemid=item.getItemId();

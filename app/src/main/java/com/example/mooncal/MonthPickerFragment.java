@@ -66,7 +66,6 @@ public class MonthPickerFragment extends DialogFragment implements OnDateSetList
 			});
 		}
 		
-		datePicker.setCalendarViewShown(false);
 		return dpd;
 	}
 

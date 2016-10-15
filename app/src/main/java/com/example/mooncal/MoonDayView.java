@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -38,15 +39,24 @@ public class MoonDayView extends View {
 		mPath=new Path();
 		fPath=new Path();
 		mPaint=new Paint();
-		mPaint.setColor(r.getColor(R.color.moonColor));
+		mPaint.setColor(getColor(r,R.color.moonColor));
 		mPaint.setAntiAlias(true);
 		fPaint=new Paint();
 		fPaint.setStyle(Paint.Style.STROKE);
-		fPaint.setColor(r.getColor(R.color.frameColor));
+		fPaint.setColor(getColor(r,R.color.frameColor));
 		fPaint.setAntiAlias(true);
 		outerBounds=new RectF(0,0,256.f,256.f);
 	}
-	
+
+	private int getColor(Resources r, int rsrcId) {
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			return getContext().getColor(rsrcId);
+		} else {
+			// noinspection deprecation
+			return r.getColor(rsrcId);
+		}
+	}
+
 	private void setupPath(int left, int top, int radius) {
 		outerBounds.set(left,top,left+radius,top+radius);
 		mPath.reset();

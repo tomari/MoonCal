@@ -158,14 +158,14 @@ public class MainActivity extends Activity {
 		}
 		ActionBar actionBar=getActionBar();
 		CharSequence monthyear=DateFormat.format(monthYearFormat, month);
-		actionBar.setTitle(monthyear);		
+		actionBar.setTitle(monthyear);
 	}
 	
 	private int calcHighlightDay(GregorianCalendar month) {
 		int highlightDay;
 		GregorianCalendar rightNow = new GregorianCalendar();
-		if((rightNow.get(GregorianCalendar.MONTH) == monthShown.get(GregorianCalendar.MONTH)) &&
-				(rightNow.get(GregorianCalendar.YEAR) == monthShown.get(GregorianCalendar.YEAR))) {
+		if((rightNow.get(GregorianCalendar.MONTH) == month.get(GregorianCalendar.MONTH)) &&
+				(rightNow.get(GregorianCalendar.YEAR) == month.get(GregorianCalendar.YEAR))) {
 			highlightDay=rightNow.get(GregorianCalendar.DAY_OF_MONTH);
 		} else {
 			highlightDay=-1;
@@ -198,8 +198,8 @@ public class MainActivity extends Activity {
 			moonViews[fieldnum].setVisibility(View.INVISIBLE);
 		}
 		Resources r=getResources();
-		int highlightColor=r.getColor(R.color.highlight);
-		int normalColor=r.getColor(R.color.ordinaryday);
+		int highlightColor=getColor(r,R.color.highlight);
+		int normalColor=getColor(r,R.color.ordinaryday);
 		int highlightDay=calcHighlightDay(monthShown);
 		for(int day=fstDay; day<=lstDay; day++) {
 			int bgcolor=(highlightDay==day)?highlightColor:normalColor;
@@ -214,6 +214,14 @@ public class MainActivity extends Activity {
 		for(; fieldnum<dayLabels.length; fieldnum++) {
 			dayLabels[fieldnum].setVisibility(View.INVISIBLE);
 			moonViews[fieldnum].setVisibility(View.INVISIBLE);
+		}
+	}
+	private int getColor(Resources r, int rsrcId) {
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			return getColor(rsrcId);
+		} else {
+			// noinspection deprecation
+			return r.getColor(rsrcId);
 		}
 	}
 	@Override
