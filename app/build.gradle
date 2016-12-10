@@ -1,9 +1,15 @@
 apply plugin: 'com.android.application'
 android {
     signingConfigs {
+        config {
+            storeFile file('/home/davy/.android/debug.keystore')
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storePassword 'android'
+        }
     }
-    compileSdkVersion 24
-    buildToolsVersion '24.0.3'
+    compileSdkVersion 25
+    buildToolsVersion '25.0.1'
     defaultConfig {
         applicationId "com.example.mooncal"
         minSdkVersion 11
@@ -17,8 +23,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
         }
         debug {
+            signingConfig signingConfigs.config
         }
     }
     externalNativeBuild {
