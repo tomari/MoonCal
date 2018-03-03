@@ -15,7 +15,7 @@ jobs:
           command: ./scripts/install_ndk.sh
       - save_cache:
           paths:
-            - /opt/ndk
+            - ~/ndk
           key: ndk-{{ checksum "scripts/install_ndk.sh" }}
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
