@@ -1,5 +1,7 @@
 # MoonCal
 
+[![CircleCI](https://circleci.com/gh/tomari/MoonCal.svg?style=svg)](https://circleci.com/gh/tomari/MoonCal)
+
 An application for Android that shows calendar with moon phase.
 
 <img src="http://davy.nyacom.net/mooncal/mooncal_2.png" alt="screenshot" />
